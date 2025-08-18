@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .message {
+                margin-top: 10px;
+                font-size: 15px;
+            }
+            .red-text{
+                color: red;
+            }
+        </style>
+       
+    </head>
+
+    <body>
+        <h3>Community Agging</h3>
+        <label for="age">Age</label>
+        <input type="number" id = "age" placeholder="Enter Your Age ">
+
+        <div id="message" class="message"></div>
+
+         <script>
+           
+               const ageInput = document.getElementById("age");
+               const messageDiv = document.getElementById("message");
+
+                ageInput.addEventListener("input", function() {
+                    let age = parseInt(this.value);
+ 
+                    if (!age){
+                        messageDiv.textContent = "";
+                        messageDiv.className= "message";
+                        return;
+                    }
+
+                    if (age < 40){
+                    messageDiv.textContent = "To be a part of the community, you need to at least 40";
+                    messageDiv.className = "message";
+                }
+                else if (age >= 40 && age <= 50) {
+                    messageDiv.textContent = "You are the youngsters of this community";
+                    messageDiv.className = "message";
+                }
+                else if (age > 50) {
+                    messageDiv.textContent = "Top level members of the group";
+                    messageDiv.className = "message red-text";
+                }
+
+
+                });
+            
+        </script>
+    </body>
+</html>

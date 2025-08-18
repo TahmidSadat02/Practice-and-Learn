@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+
+<body>
+    <h3>User Form</h3>
+    <form id="userform">
+
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname"> <br> <br>
+        <label for="lastnmae">Last Name</label>
+        <input type="text" id="lastname"> <br> <br>
+
+        <button type="submit">Submit</button>
+        <!-- <input type="submit" value="Submit"> -->
+    </form>
+
+    <script>
+        window.onload = function()
+         {
+        document.getElementById("userform").addEventListener("submit", function(event) 
+        {
+            let firstname = document.getElementById("firstname").value.trim();
+            let lastname = document.getElementById("lastname").value.trim();
+            if (firstname === "" || lastname === "") {
+                alert("Please Fill the name field");
+                event.preventDefault();
+                return false;
+            }
+            if (firstname.length < 2 || lastname.length < 2) {
+                alert("Enter more than 2 characters");
+                event.preventDefault();
+                return false;
+            }
+            alert("Successfully submitted");
+            return true;
+        });
+    };
+    </script>
+
+</body>
+</html>

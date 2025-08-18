@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Verification</title>
+</head>
+<body>
+    <h2>Password Verification</h2>
+    <form id="passwordForm">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message" style="color:red;"></p>
+
+    <script>
+        const form = document.getElementById('passwordForm');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const password = document.getElementById('password').value;
+
+            // Regex to check password rules
+            const uppercase = /[A-Z]/;
+            const lowercase = /[a-z]/;
+            const specialChar = /[@#$\-\\_]/;
+
+            if (!uppercase.test(password)) {
+                message.textContent = "Password must contain at least one uppercase letter.";
+            } else if (!lowercase.test(password)) {
+                message.textContent = "Password must contain at least one lowercase letter.";
+            } else if (!specialChar.test(password)) {
+                message.textContent = "Password must contain at least one special character (@#$-_\\).";
+            } else {
+                message.style.color = "green";
+                message.textContent = "Password is valid!";
+            }
+        });
+    </script>
+</body>
+</html>

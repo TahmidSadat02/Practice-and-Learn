@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h3>UPPER CASING</h3>
+</head>
+
+<body style="font-family: Arial; text-align:center; padding-top:50px;">
+    <form>
+        <label for="username">User Name</label>
+        <input type="text" id = "username"> 
+    </form>
+
+    <script>
+       const userInput = document.getElementById("username");
+       
+       userInput.addEventListener("input", function() {
+                this.value = this.value.toUpperCase();
+            });
+        
+    </script>
+</body>
+</html>

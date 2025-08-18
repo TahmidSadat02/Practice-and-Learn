@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Methods Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { margin: 5px; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+    #container { margin-top: 20px; padding: 10px; border: 1px solid #ccc; min-height: 50px; }
+  </style>
+</head>
+<body>
+  <h1>DOM Methods Demo</h1>
+
+  <!-- Buttons for actions -->
+  <button onclick="createPara()">Create & Append</button>
+  <button onclick="removePara()">Remove</button>
+  <button onclick="replacePara()">Replace</button>
+  <button onclick="writeToDoc()">document.write()</button>
+
+  <!-- Container where elements will appear -->
+  <div id="container">
+    <p id="oldPara">This is the old paragraph.</p>
+  </div>
+
+  <script>
+    function createPara() {
+      let container = document.getElementById("container");
+      let newP = document.createElement("p");   // create <p>
+      newP.textContent = "I am a new paragraph!";
+      container.appendChild(newP);              // append inside container
+    }
+
+    function removePara() {
+      let container = document.getElementById("container");
+      let para = container.querySelector("p"); // get first <p> in container
+      if (para) {
+        container.removeChild(para);           // remove it
+      }
+    }
+
+    function replacePara() {
+      let container = document.getElementById("container");
+      let oldP = document.getElementById("oldPara");
+      if (oldP) {
+        let newP = document.createElement("p");
+        newP.textContent = "This is the new replaced paragraph.";
+        container.replaceChild(newP, oldP);    // replace old with new
+      }
+    }
+
+    function writeToDoc() {
+      // WARNING: This will overwrite the whole page!
+      document.write("<h2>document.write() replaced the whole page!</h2>");
+    }
+  </script>
+</body>
+</html>

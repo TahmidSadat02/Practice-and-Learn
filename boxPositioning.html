@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Absolute Position Example</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right, lightgray 1px, transparent 1px),
+                              linear-gradient(to bottom, lightgray 1px, transparent 1px);
+            background-size: 10px 10px; /* Grid lines every 10px */
+        }
+
+        .container {
+            position: relative;
+            width: 300px;   /* 300px wide = 30 grid squares */
+            height: 200px;  /* 200px high = 20 grid squares */
+            border: 2px solid black;
+            margin: 50px; /* Just to give space from page edge */
+
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 10px;  /* 10px from bottom = 1 grid square */
+            right: 10px;   /* 10px from right = 1 grid square */
+            width: 80px;   /* example width = 8 grid squares */
+            height: 40px;  /* example height = 4 grid squares */
+            border: 2px solid black;
+            display: flex;
+            /* align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            background-color: white; */
+        }
+
+        /* .dimensions {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        } */
+    </style>
+</head>
+<body>
+    <h2>Absolute Position Example</h2>
+
+    <div class="container">
+        <div class="bottom-right">Bottom Right</div>
+    </div>
+
+    <div class="dimensions">
+        <p><b>Container:</b> 300px × 200px → 30 × 20 grid squares</p>
+        <p><b>Bottom Right Box:</b> 80px × 40px → 8 × 4 grid squares</p>
+    </div>
+</body>
+</html>
